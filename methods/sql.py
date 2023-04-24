@@ -14,7 +14,7 @@ class Sql_db:
                               sq.Column("username_tg", sq.Text),
                               sq.Column("first_name", sq.Text),
                               sq.Column("sub_status", sq.Integer, default=3),
-                              sq.Column("openAI_token", sq.Text, default="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")
+                              sq.Column("openAI_token", sq.Text, default="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")
                               )
 
         self.metadata.create_all(self.engine)
@@ -25,7 +25,6 @@ class Sql_db:
         ])
 
         self.connection.execute(insertion_query)
-
 
     def find_user(self, chat_id):
         data = sq.select(self.users).where(self.users.columns.chat_id == chat_id)
